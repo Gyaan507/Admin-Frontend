@@ -2,10 +2,9 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ComplexNavbar from '../common/ComplexNavbar';
-import DefaultSidebar from '../common/DefaultSidebar';
 import CenterCard from '../common/CenterCard';
-import CreateUser from '../common/CreateUser';
-import Dashboard from '../common/Dashboard';
+import CreateUser from './CreateUser';
+import Dashboard from './Dashboard';
 import '../App.css';
 
 const Department = () => {
@@ -159,7 +158,6 @@ const Department = () => {
     <div>
       <ComplexNavbar />
       <div className="page-container">
-        <DefaultSidebar />
         <div className="main-content">
           {notification.message && (
             <div className={`notification ${notification.type}`}>
