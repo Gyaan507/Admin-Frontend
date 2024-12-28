@@ -146,7 +146,7 @@ const Options = () => {
               <div className="option-header">
                 <h1>Manage {activeTab}</h1>
                 <div className="search-add-container">
-                <input
+                  <input
                     type="text"
                     placeholder={`Add a new ${activeTab.slice(0, -1).toLowerCase()}`}
                     className="option-input"
@@ -158,7 +158,7 @@ const Options = () => {
                     onClick={handleAdd}
                     disabled={loading}
                   >
-                    {loading ? 'Adding...' : 'Add'}
+                    {loading ? 'Switching...' : 'Add'}
                   </button>
                 </div>
               </div>

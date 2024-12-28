@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
-  FaBriefcase, 
-  FaBell, 
-  FaBookmark, 
-  FaCheck 
+  FaUsers, 
+  FaFileAlt, 
+  FaBuilding, 
+  FaUserTie 
 } from 'react-icons/fa';
 import ComplexNavbar from '../common/ComplexNavbar';
 import DefaultSidebar from '../common/DefaultSidebar';
@@ -16,29 +16,29 @@ const Dashboard = () => {
 
   const statsItems = [
     {
-      title: 'Applied Jobs',
-      icon: FaBriefcase,
+      title: 'Employee',
+      icon: FaUsers,
       value: 0,
       color: 'blue',
       bgColor: 'bg-blue-50'
     },
     {
-      title: 'Job Alerts',
-      icon: FaBell,
+      title: 'Job Posts',
+      icon: FaFileAlt,
       value: 0,
       color: 'red',
       bgColor: 'bg-red-50'
     },
     {
-      title: 'Saved Jobs',
-      icon: FaBookmark,
+      title: 'Total Company Registered',
+      icon: FaBuilding,
       value: 0,
       color: 'green',
       bgColor: 'bg-green-50'
     },
     {
-      title: 'Shortlisted',
-      icon: FaCheck,
+      title: 'Candidates',
+      icon: FaUserTie,
       value: 0,
       color: 'orange',
       bgColor: 'bg-orange-50'

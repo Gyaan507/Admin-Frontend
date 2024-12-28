@@ -33,6 +33,15 @@ const DefaultSidebar = () => {
               <span className="menu-text">Add Options</span>
             </button>
           </li>
+          <li className="menu-item">
+            <button
+              className={`menu-link ${activeMenuItem === "admin_api" ? "active" : ""}`}
+              onClick={() => handleMenuClick("admin_api", "/admin_api")}
+            >
+              <span className="menu-icon">⚙️</span>
+              <span className="menu-text">Admin API</span>
+            </button>
+          </li>
           {/* <li className="menu-item">
             <button
               className={`menu-link ${activeMenuItem === "jobtype" ? "active" : ""}`}

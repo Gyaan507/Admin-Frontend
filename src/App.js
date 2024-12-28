@@ -8,6 +8,7 @@ import Login from "./components/Login";
 
 import Dashboard from "./components/Dashboard";
 import Options from "./components/Options";
+import Admin_api from "./components/Admin_api";
 
 // import ComplexNavbar from "./common/ComplexNavbar";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/" element={<Login/>}/>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/options" element={<Options />} />
+        <Route path="/admin_api" element={<Admin_api />} />
         {/* <Route path="/department" element={<Department />} />
         <Route path="/industry" element={<Industry />} />
         <Route path="/jobtype" element={<Jobtype />} />

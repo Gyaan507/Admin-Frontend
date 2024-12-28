@@ -5,16 +5,22 @@ import "../App.css";
 const ComplexNavbar = () => {
   // const location = useLocation();
   // const navigate = useNavigate();
-
+  
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
-
+  
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
-
+  
   const handleCheckboxChange = () => {
     setCheckboxChecked(!checkboxChecked);
+  };
+  
+  const [userData, setUserData] = useState(null);
+  const getFullName = () => {
+    if (!userData) return 'Guest';
+    return `${userData.first_name || ''} ${userData.last_name || ''}`.trim() || 'User';
   };
 
   return (
@@ -48,9 +54,9 @@ const ComplexNavbar = () => {
         <div className="navbar-user">
           <div className="navbar-user-avatar">👤</div>
           <div className="navbar-user-details">
-            <span className="navbar-user-name" onClick={toggleDropdown}>
-              Gyaneshwar Kumar
-            </span>
+          <span className="navbar-user-name" onClick={toggleDropdown}>
+          {getFullName()}
+        </span>
             <button className="dropdown-btn" onClick={toggleDropdown}>
               ▼
             </button>

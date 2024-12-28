@@ -51,7 +51,7 @@ function Login() {
             <input
               type="password"
               id="password"
-              placeholder="********"
+              placeholder=""
               required
               className="form-input"
             />
@@ -116,4 +116,3 @@ function Login() {
 }
 
 export default Login;
-
