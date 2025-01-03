@@ -1,14 +1,21 @@
-import React, { useState } from "react";
-// import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../App.css";
 
 const ComplexNavbar = () => {
-  // const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [checkboxChecked, setCheckboxChecked] = useState(false);
+  const [userData, setUserData] = useState(null);
   
+  useEffect(() => {
+    const storedUserData = localStorage.getItem('user');
+    if (storedUserData) {
+      setUserData(JSON.parse(storedUserData));
+    }
+  }, []);
+
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
@@ -17,10 +24,19 @@ const ComplexNavbar = () => {
     setCheckboxChecked(!checkboxChecked);
   };
   
-  const [userData, setUserData] = useState(null);
   const getFullName = () => {
     if (!userData) return 'Guest';
     return `${userData.first_name || ''} ${userData.last_name || ''}`.trim() || 'User';
+  };
+
+  const handleLogout = () => {
+    // Clear user data from localStorage
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    // Update state
+    setUserData(null);
+    // Redirect to login page
+    navigate('/login');
   };
 
   return (
@@ -64,7 +80,7 @@ const ComplexNavbar = () => {
           {dropdownOpen && (
             <div className="dropdown-menu">
               <div className="dropdown-item">Reset Password</div>
-              <div className="dropdown-item">Logout</div>
+              <div className="dropdown-item" onClick={handleLogout}>Logout</div>
               <div className="dropdown-item">
                 <label>
                   <input

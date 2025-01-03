@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
   FaUsers, 
@@ -13,6 +13,26 @@ import '../App.css';
 const Dashboard = () => {
   const navigate = useNavigate();
   const [filterDate, setFilterDate] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const checkAuthentication = () => {
+      const token = localStorage.getItem('token');
+      console.log("Dashboard - token check:", token ? "exists" : "not found"); // Debug log
+      if (!token) {
+        console.log("Dashboard - redirecting to login"); // Debug log
+        navigate('/login');
+      } else {
+        // Here you would typically verify the token with your backend
+        // For demonstration, we'll just simulate this with a timeout
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      }
+    };
+
+    checkAuthentication();
+  }, [navigate]);
 
   const statsItems = [
     {
@@ -44,6 +64,10 @@ const Dashboard = () => {
       bgColor: 'bg-orange-50'
     }
   ];
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
