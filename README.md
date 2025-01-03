@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Admin Dashboard with FastAPI and React.js
 
 ## Overview
@@ -93,3 +94,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 GitHub Repository
 
 Click here to view the repository
+=======
+# Admin-Frontend
+>>>>>>> origin/main
